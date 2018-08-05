@@ -1,0 +1,143 @@
+/* Hide tabline */
+#tabbrowser-tabs {
+  --tab-line-color: transparent !important;
+}
+
+/* Grayscale inactive tabs */
+.tabbrowser-tab:not([selected="true"]) {
+  filter: grayscale(100%) !important;
+/*   background-color: rgba(0, 0, 0, 0.05) !important; */
+}
+
+/* Chrome like tabs */
+.tabbrowser-tab::after,
+.tabbrowser-tab::before {
+  display: none !important;
+}
+
+#navigator-toolbox > toolbar:not(#toolbar-menubar):not(#TabsToolbar):not(#nav-bar) {
+  padding: 6px 6px 6px !important;
+}
+
+.tabbrowser-tab {
+  margin: 0 -28px 0 0 !important;
+}
+
+.tab-background {
+  background: rgba(210, 210, 210, 1);
+  margin: -3px 15px !important;
+  border: 1px solid #aaa !important;
+  border-bottom: none !important;
+  -webkit-transform: perspective(100px) rotateX(30deg) !important;
+  -moz-transform: perspective(100px) rotateX(30deg) !important;
+}
+
+.tab-line {
+  display: none !important;
+}
+
+.tab-content {
+  padding: 0 25px !important;
+}
+
+.tab-close-button {
+  border-radius: 10px;
+}
+
+.tabs-newtab-button.toolbarbutton-1 {
+  margin-left: 20px !important;
+}
+
+.titlebar-placeholder[type="pre-tabs"] {
+  border-inline-end: initial !important;
+}
+
+#tabbrowser-tabs:not([movingtab]) > .tabbrowser-tab[beforeselected-visible]::after,
+#tabbrowser-tabs[movingtab] > .tabbrowser-tab[visuallyselected]::before,
+.tabbrowser-tab[visuallyselected]::after {
+  border-color: var(--tabs-border-color);
+  margin-top: 0;
+  margin-bottom: 1px;
+  opacity: 1;
+  border: none !important;
+}
+
+[tabsintitlebar]:root:not([extradragspace]) .tabbrowser-tab::after,
+.tabbrowser-tab:hover::after,
+#tabbrowser-tabs:not([movingtab]) > .tabbrowser-tab[beforehovered]::after {
+  border: none !important;
+}
+
+/* Make Bookmarks toolbar visible only on new tab page */
+#main-window #PersonalToolbar {
+  visibility: collapse !important;
+}
+
+#main-window[title^="about:newtab"] #PersonalToolbar,
+#main-window[title^="New Tab"] #PersonalToolbar,
+#main-window[title^="Nightly"] #PersonalToolbar,
+#main-window[title^="Mozilla Firefox"] #PersonalToolbar,
+#main-window[title^="Firefox"] #PersonalToolbar {
+  visibility: visible !important;
+}
+
+/* Findbar to top */
+findbar {
+  -moz-box-ordinal-group: 0 !important;
+  transition-property: unset !important;
+  transition-duration: unset !important;
+  transition-timing-function: unset !important;
+  border-bottom: 1px solid var(--toolbox-border-bottom-color) !important;
+}
+
+/* Remove "Send Page to Device", "Send Link to Device", "Send Tab to Device" from context menu. */
+#context-sendpagetodevice, #context-sep-sendpagetodevice,
+#context-sendlinktodevice, #context-sep-sendlinktodevice,
+#context_sendTabToDevice, #context_sendTabToDevice_separator {
+  display: none !important;
+}
+
+/* Edit the address bar and search bar borders. */
+#urlbar, .searchbar-textbox {
+  box-shadow: none !important;
+  background-color: white !important;
+  border-radius: 0 !important;
+}
+
+/* Custom dialogs */
+tabmodalprompt {
+  font-family: "Segoe UI" !important;
+  animation: 0.2s fade-in;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+tabmodalprompt .mainContainer .buttonContainer {
+  background-color: rgba(0, 0, 0, 0.025) !important;
+}
+
+tabmodalprompt .mainContainer .buttonContainer button {
+  -moz-appearance: none !important;
+  border: 1px solid var(--toolbox-border-bottom-color);
+  border-radius: var(--toolbarbutton-border-radius);
+  margin: 0 0 0 12px !important;
+  padding: 3px 0px;
+}
+
+tabmodalprompt .mainContainer .buttonContainer button:hover, tabmodalprompt .mainContainer .buttonContainer button:focus {
+  background-color: var(--toolbarbutton-hover-background);
+}
+
+tabmodalprompt .mainContainer .buttonContainer button:active {
+  background-color: var(--toolbarbutton-active-background);
+}
+
+tabmodalprompt .mainContainer .buttonContainer button[default="true"], tabmodalprompt .mainContainer .buttonContainer button[label="OK"] {
+  background-color: #0A84FF;
+  border-color: #0060DF;
+  font-size: 0.9em;
+  color: #fff !important;
+}
+
+tabmodalprompt .mainContainer .buttonContainer button[default="true"]:hover, tabmodalprompt .mainContainer .buttonContainer button[default="true"]:focus, tabmodalprompt .mainContainer .buttonContainer button[label="OK"]:hover, tabmodalprompt .mainContainer .buttonContainer button[label="OK"]:focus {
+  background-color: #0060DF;
+}
