@@ -1,4 +1,4 @@
-# formstreak / Firefox Quantum customizations
+# formstreak: Firefox Quantum customizations
 
 A custom userChrome featuring:
 

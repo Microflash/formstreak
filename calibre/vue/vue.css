@@ -1,0 +1,147 @@
+body {
+  backgorund-color: #fbfbfb;
+  color: #444444;
+  line-height: 1.4;
+}
+a {
+  color: #42b983;
+  font-weight: bold;
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  line-height: 1.4;
+  cursor: text;
+}
+h1 {
+  padding-bottom: 1.2em;
+  font-size: 2em;
+  font-weight: 800;
+  line-height: 1.2;
+}
+h2 {
+  padding-top: 1.2em;
+  padding-bottom: .8em;
+  font-size: 1.5em;
+  line-height: 1.5;
+  border-bottom: 1px solid #dedede;
+}
+h3 {
+  padding-top: 1em;
+  padding-bottom: .6em;
+  font-size: 1.25em;
+  line-height: 1.43;
+}
+h4 {
+  font-size: 1.15em;
+}
+h5 {
+  font-size: 1em;
+}
+h6 {
+  font-size: 1em;
+  color: #777;
+}
+hr {
+  border: none !important;
+  border-top: 1px solid #ddd !important;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+  margin: 1em 0;
+}
+p,
+div {
+  text-indent: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+li > ol,
+li > ul {
+  margin: 0 0;
+}
+ul,
+ol {
+  padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+  margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+  margin-bottom: 0;
+}
+blockquote {
+  border-left: 4px solid #f66;
+  background-color: #f8f8f8;
+  padding: 20px;
+  color: #676767;
+}
+blockquote blockquote {
+  padding-right: 0;
+}
+[class^='pre'],
+[class*=' pre'],
+code,
+tt {
+  padding: 0;
+  font-family: "Roboto Mono", Consolas, "Liberation Mono", Courier, monospace !important;
+  padding: 2px 4px 0px 4px;
+  font-size: 0.85em;
+}
+code,
+tt {
+  color: #e96900;
+}
+[class^='pre'],
+[class*=' pre'] {
+  background-color: #f8f8f8;
+  margin: 1em 0 1em 0 !important;
+  padding: 16px;
+}
+table {
+  padding: 0;
+  word-break: initial;
+}
+table tr {
+  border-top: 1px solid #cccccc !important;
+  margin: 0;
+  padding: 0;
+}
+table tr:nth-child(2n) {
+  background-color: #fdfdfd;
+}
+table tr th {
+  font-weight: bold;
+  border: 1px solid #cccccc !important;
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+table tr td {
+  border: 1px solid #cccccc !important;
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+  margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+  margin-bottom: 0;
+}

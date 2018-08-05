@@ -1,5 +1,9 @@
 # formstreak
 
-A collection of design systems developed for a host of applications 
+A collection of design systems (customizations) developed for a host of applications 
 
-- [Firefox Quantum customizations](./firefox-quantum/README.md)
+
+### Available Customizations
+
+- [Calibre](./calibre/README.md)
+- [Firefox Quantum](./firefox-quantum/README.md)
