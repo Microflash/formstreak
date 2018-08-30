@@ -7,3 +7,4 @@ A collection of design systems (customizations) developed for a host of applicat
 
 - [Calibre](./calibre/README.md)
 - [Firefox Quantum](./firefox-quantum/README.md)
+- [Typora](./typora/README.md)
