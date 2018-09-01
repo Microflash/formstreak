@@ -1,12 +1,16 @@
+
+
 # formstreak: Dropbox Theme for Typora
 
 A custom theme for Typora inspired by Dropbox featuring:
 
-![Typora customizations](screenshot.png)
+![Typora Dropbox Theme](./dropbox.png)
+
+![Typora Darkbox Theme](./darkbox.png)
 
 ### Usage
 
-Copy the [dropbox.css](./dropbox.css) in your theme folder (%USERPROFILE%\AppData\Roaming\Typora\themes) and select the theme in Typora.
+Copy the [dropbox.css](./dropbox.css) or [darkbox.css](./darkbox.css) in your theme folder (%USERPROFILE%\AppData\Roaming\Typora\themes) and select the theme in Typora.
 
 #### Compatibility
 
