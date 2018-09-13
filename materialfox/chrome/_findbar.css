@@ -1,0 +1,9 @@
+/* Findbar to top */
+findbar {
+  -moz-box-ordinal-group: 0 !important;
+  transition-property: unset !important;
+  transition-duration: unset !important;
+  transition-timing-function: unset !important;
+  border-bottom: 1px solid var(--toolbox-border-bottom-color) !important;
+  border-top: transparent !important;
+}

@@ -5,6 +5,7 @@ A collection of design systems (customizations) developed for a host of applicat
 
 ### Available Customizations
 
-- [Calibre](./calibre/README.md)
-- [Firefox Quantum](./firefox-quantum/README.md)
-- [Typora](./typora/README.md)
+- [Calibre](./calibre/)
+- [Firefox Quantum](./firefox-quantum/)
+- [MaterialFox](./materialfox/)
+- [Typora](./typora/)
