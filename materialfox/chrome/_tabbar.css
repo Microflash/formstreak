@@ -170,8 +170,8 @@
 .tabbrowser-tab[visuallyselected][style*=transform] + .tabbrowser-tab[style*=transform] .tab-content::after,
 .tabbrowser-tab[style*=transform]:not([visuallyselected]) .tab-content::before,
 .tabbrowser-tab[style*=transform] + .tabbrowser-tab:not([visuallyselected]) .tab-content::before,
-.tabbrowser-tab:not([visuallyselected]):not(:hover) + .tabbrowser-tab:not([visuallyselected]):not(:hover) .tab-content::before,
-#tabbrowser-tabs[hasadjacentnewtabbutton] .tabbrowser-tab[last-visible-tab]:not([visuallyselected]):not(:hover) .tab-content::after
+.tabbrowser-tab:not([visuallyselected]):not(:hover):not([multiselected]) + .tabbrowser-tab:not([visuallyselected]):not(:hover):not([multiselected]) .tab-content::before,
+#tabbrowser-tabs[hasadjacentnewtabbutton] .tabbrowser-tab[last-visible-tab]:not([visuallyselected]):not(:hover):not([multiselected]) .tab-content::after
 {
 	opacity: var(--tab-separator-opacity) !important;
 }
@@ -179,6 +179,11 @@
 .tabbrowser-tab:hover .tab-background
 {
 	fill-opacity: var(--tab-hover-fill-opacity) !important;
+}
+
+.tabbrowser-tab[multiselected] .tab-background
+{
+	fill-opacity: var(--tab-focus-fill-opacity) !important;
 }
 
 .tabbrowser-tab[visuallyselected]
@@ -197,11 +202,15 @@
 	color: var(--toolbar-color) !important;
 }
 
-.tab-icon-image,
 .tab-throbber,
 .tab-throbber-fallback
 {
 	margin-inline-end: 8px !important;
+}
+
+.tab-icon-image
+{
+	margin: 0 !Important;
 }
 
 /* hide new tab favicon */
@@ -214,6 +223,12 @@
 {
 	margin-top: -2px !important;
 	opacity: 1 !important;
+}
+
+.tabbrowser-tab[image]:not([image^="chrome://branding/"]) .tab-label-container,
+.tabbrowser-tab:-moz-any([progress], [busy]) .tab-label-container
+{
+	padding-inline-start: 8px !important;
 }
 
 .tabbrowser-tab[fadein] .tab-close-button
@@ -246,6 +261,7 @@
 	fill: currentColor !important;
 	fill-opacity: .7 !important;
 	background-image: url(spinner-busy.svg) !important;
+	margin: 0 !important;
 }
 
 .tab-throbber::before,
@@ -270,6 +286,18 @@
 #tabbrowser-tabs[closebuttons=activetab] .tabbrowser-tab:not([visuallyselected]) .tab-close-button
 {
 	visibility: collapse !important;
+}
+
+#tabbrowser-tabs[closebuttons=activetab] .tab-label-container[textoverflow][labeldirection="ltr"]:not([pinned]),
+#tabbrowser-tabs[closebuttons=activetab] .tab-label-container[textoverflow]:not([labeldirection]):-moz-locale-dir(ltr):not([pinned])
+{
+    mask-image: linear-gradient(to right, black 70%, transparent) !important;
+}
+
+#tabbrowser-tabs[closebuttons=activetab] .tab-label-container[textoverflow][labeldirection="rtl"]:not([pinned]),
+#tabbrowser-tabs[closebuttons=activetab] .tab-label-container[textoverflow]:not([labeldirection]):-moz-locale-dir(rtl):not([pinned])
+{
+    mask-image: linear-gradient(to left, black 70%, transparent) !important;
 }
 
 /* overflowing and pinned tabs */
@@ -323,9 +351,9 @@
 		padding-inline-end: 0 !important;
 	}
 	
-	#tabbrowser-tabs[overflow] .tabbrowser-tab:not([visuallyselected]) .tab-close-button,
-	#tabbrowser-tabs[overflow] .tabbrowser-tab[visuallyselected] :-moz-any(.tab-label-container, .tab-icon-image),
-	#tabbrowser-tabs[overflow] .tabbrowser-tab[image]:not([image^="chrome://branding/"]) .tab-label-container
+	#tabbrowser-tabs[overflow] .tabbrowser-tab:not([visuallyselected]):not([pinned]) .tab-close-button,
+	#tabbrowser-tabs[overflow] .tabbrowser-tab[visuallyselected]:not([pinned]) :-moz-any(.tab-label-container, .tab-icon-image),
+	#tabbrowser-tabs[overflow] .tabbrowser-tab[image]:not([image^="chrome://branding/"]):not([pinned]) .tab-label-container
 	{
 		display: none !important;
 	} 
@@ -350,11 +378,6 @@
 	margin: 7px -.5px !important;
 	background: currentColor !important;
 	opacity: var(--tab-separator-opacity) !important;
-}
-
-#alltabs-button
-{
-	display: none !important;
 }
 
 /* macOS */
