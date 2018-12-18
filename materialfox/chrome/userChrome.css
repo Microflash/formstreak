@@ -1,8 +1,7 @@
-@import "_vars.css";
-@import "_browser.css";
-@import "_tabbar.css";
-@import "_navbar.css";
-@import "_personalbar.css";
-
-@import "_findbar.css";
-@import "_personalToolbar.css";
+@import "global/variables.css";
+@import "global/global.css";
+@import "tabbar/tabbar.css";
+@import "navbar/navbar.css";
+@import "personalbar/personalbar.css";
+@import "findbar/findbar.css";
+@import "bookmarkstoolbar/bookmarkstoolbar.css";

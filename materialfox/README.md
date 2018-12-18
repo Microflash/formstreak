@@ -9,34 +9,40 @@ A Material Design 2-inspired userChrome.css theme for Firefox. This is a fork of
 
 Some steps involve accessing the about:config page. You can get there by typing it into your urlbar.
 
-### Mandatory steps
+### Mandatory instructions
 1. Copy the chrome folder into your Firefox profile directory. To find your profile directory, go to about:support. Alternatively, you can symlink your chrome folder instead of copying.
 2. [about:config] Set ```svg.context-properties.content.enabled``` to ```true``` (default is ```false```).
 3. Restart Firefox.
 
-### Optional steps
-Replicate Chrome's light color scheme:
+### Recommended instructions
+Disable any existing themes
 * Right click on toolbar -> Customize.
 * Click Themes.
 * Select Light theme.
 
-Add space above tab bar:
+For better theme/color control:
+* Install [MaterialFox Helper](https://addons.mozilla.org/en-US/firefox/addon/materialfox-helper/).
+* Click the MaterialFox Helper button and select Light (Material) or Dark (Material) depending on taste.
+* Useful on macOS Mojave (dark mode) to force a better looking dark theme.
+
+Add space above tab bar
 * Right click on toolbar -> Customize.
 * Check Drag Space checkbox.
 
-Replicate Chrome behaviour for clipped tabs:
+Emulate Chrome's profile switcher button
+* Right click on toolbar -> Customize.
+* Drag Synced Tabs to the toolbar.
+
+Replicate Chrome behavior for clipped tabs
 * [about:config] Set ```browser.tabs.tabClipWidth``` to ```83``` (default is ```144```).
 
-Allow tabs to shrink more; tabs in overflow will look the same as pinned tabs:
+Allow tabs to shrink more; tabs in overflow will look the same as pinned tabs
 * [about:config] Add new entry ```materialFox.reduceTabOverflow``` with value ```true```.
 
-Replicate Chrome identity colours (or lack thereof):
-* [about:config] Add new entry ```materialFox.disableIdentityColors``` with value ```true```.
-* Restart Firefox.
-
-Remove pocket button from Address Bar:
-* Right click on pocket button -> Remove from Address Bar
+Replicate Chrome's "Not Secure" on HTTP
+* [about:config] Set ```security.insecure_connection_text.enabled``` to ```true```.
 
 ## Note
-* Linux is not frequently tested; last tested on 07/09/2018.
-* Some customisation settings may no longer work (compact density, some custom themes).
+* Linux is not frequently tested; last tested on 11/16/2018.
+* Some customisation settings may no longer work (such as compact density).
+* Some themes, including built in Light and Dark may clash with address bar.

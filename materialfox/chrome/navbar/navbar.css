@@ -28,6 +28,16 @@
 	list-style-image: url(menu.svg) !important;
 }
 
+#navigator-toolbox #PanelUI-menu-button[badge-status|="update"]
+{
+	list-style-image: url(menu-update.svg) !important;
+}
+
+#navigator-toolbox #PanelUI-menu-button[badge-status|="update"] .toolbarbutton-badge
+{
+	display: none !important;
+}
+
 #navigator-toolbox #reload-button
 {
 	list-style-image: url(refresh-1x.svg) !important;
@@ -63,6 +73,13 @@
 {
 	overflow: visible !important;
 	padding: 0 5px !important;
+}
+
+.searchbar-textbox
+{
+	color: inherit !important;
+	font-size: inherit !important;
+	min-height: auto !important;
 }
 
 #urlbar,
@@ -244,11 +261,16 @@
 {
 	min-width: 32px !important;
 	height: 24px !important;
-	padding: 4px 8px !important;
+	padding: 0 8px !important;
 	border-radius: 99px !important;
 	fill-opacity: 1 !important;
 	transition: background-color .2s var(--ease-basic);
 	background-color: transparent !important;
+}
+
+.urlbar-icon
+{
+	padding: 4px 8px !important;
 }
 
 .urlbar-icon:hover:not([disabled]),
@@ -295,6 +317,11 @@
 	margin-inline-start: 0 !important;
 }
 
+#pocket-button-box[animate] > #pocket-animatable-box
+{
+	margin-inline-start: 6px !important;
+}
+
 #star-button
 {
 	list-style-image: url(star-1x.svg) !important;
@@ -312,6 +339,33 @@
 	display: none !important;
 }
 
+/* incognito icon */
+:root[privatebrowsingmode] #nav-bar::after
+{
+	content: "" !important;
+	background-image: url(incognito.svg) !important;
+	background-position: center !important;
+	background-repeat: no-repeat !important;
+	-moz-context-properties: fill, fill-opacity !important;
+	display: -moz-box !important;
+	fill: currentColor !important;
+	color: inherit !important;
+	width: var(--button-size) !important;
+	height: var(--button-size) !important;
+}
+
+/* replaces sync-button if present */
+:root[privatebrowsingmode] #navigator-toolbox #sync-button,
+.private-browsing-indicator
+{
+	display: none !important;
+}
+
+#PanelUI-button
+{
+	-moz-box-ordinal-group: 2 !important;
+}
+
 /* high DPI adjustments */
 @media (min--moz-device-pixel-ratio: 2)
 {
@@ -319,12 +373,12 @@
 	{
 		list-style-image: url(arrow-back-2x.svg) !important;
 	}
-
-	#navigator-toolbox #PanelUI-menu-button .toolbarbutton-icon
+	
+	#navigator-toolbox #PanelUI-menu-button:not([badge-status|="update"]) .toolbarbutton-icon
 	{
 		transform: translate(-.5px, -.5px) !important;
 	}
-
+	
 	#navigator-toolbox #stop-button
 	{
 		list-style-image: url(stop-2x.svg) !important;
@@ -377,7 +431,7 @@
 
 	#identity-icon-labels,
 	.urlbar-input,
-	.searchbar-input
+	.searchbar-textbox
 	{
 		transform: translateY(-.5px) !important;
 	}

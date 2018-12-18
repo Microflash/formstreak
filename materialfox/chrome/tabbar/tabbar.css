@@ -1,13 +1,53 @@
 #TabsToolbar
 {
 	padding-inline-end: 2px !important;
-	color: var(--chrome-color) !important;
 }
 
-#TabsToolbar:-moz-lwtheme-darktext:not(:-moz-window-inactive),
-#main-window[privatebrowsingmode] #TabsToolbar
+@media (-moz-mac-yosemite-theme)
 {
-	-moz-appearance: none !important;
+	#TabsToolbar
+	{
+		-moz-appearance: none !important;
+	}
+	
+	:root:-moz-any([inFullscreen], [tabsintitlebar]) #TabsToolbar:not(:-moz-lwtheme)
+	{
+		background-color: #dee1e5 !important;
+		color: #606367 !important;
+		--toolbarbutton-hover-background: #cbced2 !important;
+		--toolbarbutton-active-background: #bec0c5 !important;
+	}
+	
+	:root:-moz-any([inFullscreen], [tabsintitlebar]) #TabsToolbar:not(:-moz-lwtheme):-moz-window-inactive
+	{
+		background-color: #e7eaed !important;
+	}
+}
+
+@media (-moz-os-version: windows-win7)
+{
+	#TabsToolbar:not(:-moz-lwtheme)
+	{
+		color: #808387 !important;
+		--toolbarbutton-hover-background: rgba(196, 198, 204, .8) !important;
+		--toolbarbutton-active-background: #bec0c6 !important;
+	}
+	
+	#TabsToolbar toolbarbutton:not(:-moz-lwtheme):not(:hover):not([open])
+	{
+		background-color: rgba(218, 220, 227, .8) !important;
+	}
+	
+	.tabbrowser-tab:not([visuallyselected]) .tab-background:not(:-moz-lwtheme)
+	{
+		fill: rgba(218, 220, 227, .8) !important;
+		fill-opacity: 1 !important;
+	}
+	
+	.tabbrowser-tab:hover:not([visuallyselected]) .tab-background:not(:-moz-lwtheme)
+	{
+		fill: #e9ebef !important;
+	}
 }
 
 .titlebar-placeholder
@@ -17,7 +57,8 @@
 
 .titlebar-placeholder[type=pre-tabs]
 {
-	width: 12px !important;
+	width: 8px !important;
+	display: -moz-box !important;
 }
 
 .titlebar-placeholder[type=post-tabs]
@@ -59,6 +100,8 @@
 	min-height: var(--tab-min-height) !important;
 	overflow: visible !important;
 	font-size: 12px !important;
+	background: 0 !important;
+	border: 0 !important;
 }
 
 /* neighbouring tabs should "pinch" together */
@@ -77,11 +120,6 @@
 #tabbrowser-tabs[overflow] .tabbrowser-tab:not([first-visible-tab])[pinned] .tab-stack
 {
 	margin-inline-start: -2px !important;
-}
-
-.tabbrowser-tab[fadein]
-{
-	max-width: 240px !important;
 }
 
 .tab-content
@@ -159,7 +197,9 @@
 	background-attachment: local !important;
 	margin: 0 -8px !important;
 	border: 0 !important;
-	transition: fill-opacity .2s var(--ease-basic) !important;
+	transition:
+		fill .2s var(--ease-basic),
+		fill-opacity .2s var(--ease-basic) !important;
 	fill: var(--toolbar-bgcolor) !important;
 	fill-opacity: 0 !important;
 	
@@ -195,11 +235,6 @@
 {
 	transition: none !important;
 	fill-opacity: 1 !important;
-}
-
-.tabbrowser-tab[visuallyselected] .tab-close-button
-{
-	color: var(--toolbar-color) !important;
 }
 
 .tab-throbber,
@@ -253,6 +288,11 @@
 .tab-close-button:hover
 {
 	background-color: var(--toolbarbutton-hover-background) !important;
+}
+
+.tab-close-button:hover:active
+{
+	background-color: var(--toolbarbutton-active-background) !important;
 }
 
 .tab-throbber
@@ -381,12 +421,17 @@
 }
 
 /* macOS */
-@media (-moz-overlay-scrollbars)
+@media (-moz-mac-yosemite-theme)
 {
 	#titlebar-buttonbox-container
 	{
 		-moz-box-align: start !important;
 		margin-inline-start: 0 !important;
+		margin-block-start: 10px !important;
+	}
+	
+	:root[extradragspace] #titlebar-buttonbox-container
+	{
 		margin-block-start: 13px !important;
 	}
 }
@@ -407,9 +452,14 @@
 	}
 	
 	/* macOS */
-	@media (-moz-overlay-scrollbars)
+	@media (-moz-mac-yosemite-theme)
 	{
 		#titlebar-buttonbox-container
+		{
+			margin-block-start: 9.5px !important;
+		}
+		
+		:root[extradragspace] #titlebar-buttonbox-container
 		{
 			margin-block-start: 13.5px !important;
 		}
