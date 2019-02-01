@@ -68,6 +68,11 @@
 	transform: scale(calc(1 + 1 / 16));
 }
 
+#nav-bar-customization-target
+{
+	overflow: visible !important;
+}
+
 #urlbar-container,
 #searchbar-container
 {
@@ -96,6 +101,7 @@
 	background-clip: padding-box !important;
 	min-height: 28px !important;
 	transition: background-color .1s var(--ease-basic) !important;
+	-moz-box-align: center !important;
 }
 
 #urlbar:hover,
@@ -105,12 +111,44 @@
 }
 
 #urlbar[focused],
-#searchbar[focused]
+#urlbar[open],
+#searchbar[focused],
+#searchbar[open]
 {
 	background-color: var(--toolbar-field-focus-background-color) !important;
+}
+
+#urlbar[focused],
+#searchbar[focused]
+{
 	border: 2px solid var(--toolbar-field-focus-border-color) !important;
 	padding: 1px !important;
 	margin: 0 !important;
+}
+
+#urlbar[open],
+#searchbar[open]
+{
+	border: 0 !important;
+	padding: 0 8px 0 !important;
+	border-radius: 8px 8px 0 0 !important;
+	min-height: 37px !important;
+	margin: 0 -5px -1px !important;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, .2) !important;
+	position: relative !important;
+	z-index: 99999 !important;
+}
+
+/* mac-specific tweaks */
+@media (-moz-mac-yosemite-theme)
+{
+	#urlbar[open],
+	#searchbar[open]
+	{
+		box-shadow:
+			0 3px 10px rgba(0, 0, 0, .2),
+			0 0 1px rgba(0, 0, 0, .25) !important;
+	}
 }
 
 #identity-box
@@ -133,7 +171,18 @@
 	color: inherit !important;
 }
 
-#urlbar[pageproxystate=valid] #identity-box:-moz-any(.notSecureText, .verifiedIdentity, .chromeUI, .extensionPage, .certUserOverridden),
+#urlbar[open] #identity-icon-labels
+{
+	display: none !important;
+}
+
+#urlbar[open] #identity-box
+{
+	pointer-events: none !important;
+	margin-inline-end: 8px !important;
+}
+
+#urlbar[pageproxystate=valid]:not([open]) #identity-box:-moz-any(.notSecureText, .verifiedIdentity, .chromeUI, .extensionPage, .certUserOverridden),
 #urlbar-display-box
 {
 	overflow: visible !important;
@@ -141,7 +190,7 @@
 }
 
 /* separator */
-#urlbar[pageproxystate=valid] #identity-box:-moz-any(.notSecureText, .verifiedIdentity, .chromeUI, .extensionPage, .certUserOverridden)::after,
+#urlbar[pageproxystate=valid]:not([open]) #identity-box:-moz-any(.notSecureText, .verifiedIdentity, .chromeUI, .extensionPage, .certUserOverridden)::after,
 #urlbar-display-box::after
 {
 	content: "" !important;
@@ -191,6 +240,11 @@
 {
 	display: none !important;
 	list-style-image: url(naughty-shield-1x.svg) !important;
+}
+
+#urlbar[pageproxystate="invalid"] #identity-icon
+{
+	list-style-image: url(search.svg) !important;
 }
 
 #identity-box:-moz-any(
@@ -273,6 +327,11 @@
 	padding: 4px 8px !important;
 }
 
+#urlbar[open] #page-action-buttons
+{
+	display: none !important;
+}
+
 .urlbar-icon:hover:not([disabled]),
 #identity-box:hover:not(.no-hover)
 {
@@ -339,6 +398,18 @@
 	display: none !important;
 }
 
+#urlbar[open] .urlbar-go-button,
+#searchbar[open] .search-go-button
+{
+	height: 32px !important;
+}
+
+.urlbar-go-button,
+.search-go-button
+{
+    list-style-image: url(go.svg) !important;
+}
+
 /* incognito icon */
 :root[privatebrowsingmode] #nav-bar::after
 {
@@ -364,6 +435,95 @@
 #PanelUI-button
 {
 	-moz-box-ordinal-group: 2 !important;
+}
+
+/* urlbar and searchbar autocomplete popup */
+#PopupAutoCompleteRichResult
+{
+	background: 0 !important;
+	margin-top: -4px !important;
+	color: inherit !important;
+	
+	border: 0 !important;
+	filter: drop-shadow(0 12px 6px rgba(0, 0, 0, .25)) !important;
+	overflow: visible !important;
+	padding-bottom: 28px !important;
+}
+
+#PopupAutoCompleteRichResult .autocomplete-richlistbox,
+#PopupAutoCompleteRichResult [anonid="footer"]
+{
+	background-color: var(--toolbar-field-focus-background-color) !important;
+	margin-inline-start: calc(var(--item-padding-start) + 20px - 0px) !important;
+	margin-inline-end: calc(var(--item-padding-end) - 10px) !important;
+}
+
+#PopupAutoCompleteRichResult .autocomplete-richlistbox
+{
+	padding: 0 !important;
+	/* comment to keep footer */
+	border-radius: 0 0 8px 8px !important;
+	overflow: hidden !important;
+}
+
+#PopupAutoCompleteRichResult .autocomplete-richlistitem
+{
+	border: 0 !important;
+	border-radius: 0 !important;
+	padding: 0 !important;
+	height: 36px !important;
+}
+
+/* mac-specific tweaks */
+@media (-moz-mac-yosemite-theme)
+{
+	#PopupAutoCompleteRichResult
+	{
+		filter: none !important;
+		padding-bottom: 0 !important;
+		margin-top: -3px !important;
+		
+	}
+	
+	#PopupAutoCompleteRichResult .autocomplete-richlistbox,
+	#PopupAutoCompleteRichResult [anonid="footer"]
+	{
+		background-color: var(--toolbar-field-focus-background-color) !important;
+		margin-inline-start: calc(var(--item-padding-start) + 18px - 4px) !important;
+		margin-inline-end: calc(var(--item-padding-end) - 4px) !important;
+	}
+}
+
+#PopupAutoCompleteRichResult .ac-type-icon
+{
+	display: none !important;
+}
+
+#PopupAutoCompleteRichResult .ac-site-icon
+{
+	margin-inline-start: 16px !important;
+	margin-inline-end: 16px !important;
+}
+
+#PopupAutoCompleteRichResult .ac-type-icon[type="keyword"],
+#PopupAutoCompleteRichResult .ac-site-icon[type="searchengine"]
+{
+    list-style-image: url(../navbar/search.svg) !important;
+}
+
+/* footer is hidden by default */
+#PopupAutoCompleteRichResult [anonid="footer"]
+{
+	margin-top: -8px !important;
+	border-radius: 0 0 8px 8px !important;
+	/* comment to keep footer */
+	display: none !important;
+}
+
+.search-panel-header,
+.search-panel-one-offs
+{
+	background: 0 !important;
 }
 
 /* high DPI adjustments */

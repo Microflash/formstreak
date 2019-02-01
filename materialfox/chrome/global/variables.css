@@ -1,3 +1,104 @@
+/* light mode */
+:root[style*="--lwt-accent-color:rgb(227, 228, 230);"]
+{
+	/* accentcolor */
+	--lwt-accent-color: #dee1e6 !important;
+	
+	/* textcolor */
+	--lwt-text-color: #606368 !important;
+	
+	/* toolbar */
+	--toolbar-bgcolor: #fff !important;
+	
+	/* toolbar_text */
+	--toolbar-color: #606368 !important;
+	
+	/* toolbar_bottom_separator */
+	--toolbox-border-bottom-color: #b3b1b3 !important;
+	
+	/* icons */
+	--lwt-toolbarbutton-icon-fill: #606368 !important;
+	
+	/* icons_attention */
+	--lwt-toolbarbutton-icon-fill-attention: #5086ec !important;
+	
+	/* button_background_hover */
+	--lwt-toolbarbutton-hover-background: rgba(0, 0, 0, .07) !important;
+	
+	/* button_background_active */
+	--lwt-toolbarbutton-active-background: rgba(0, 0, 0, .11) !important;
+}
+
+/* don't bother with sidebar in light mode */
+
+/* dark mode */
+:root[style*="--lwt-accent-color:rgb(12, 12, 13);"],
+:root[privatebrowsingmode]
+{
+	/* accentcolor */
+	--lwt-accent-color: #202124 !important;
+	
+	/* textcolor */
+	--lwt-text-color: #9ba0a5 !important;
+	
+	/* toolbar */
+	--toolbar-bgcolor: #333639 !important;
+	
+	/* toolbar_text */
+	--toolbar-color: #f1f3ee !important;
+	
+	/* toolbar_bottom_separator */
+	--toolbox-border-bottom-color: #282828 !important;
+	
+	/* icons */
+	--lwt-toolbarbutton-icon-fill: #f2f3f3 !important;
+	
+	/* icons_attention */
+	--lwt-toolbarbutton-icon-fill-attention: #5086ec !important;
+	
+	/* button_background_hover */
+	--lwt-toolbarbutton-hover-background: #434649 !important;
+	
+	/* button_background_active */
+	--lwt-toolbarbutton-active-background: #4e5153 !important;
+	
+	/* popup */
+	--arrowpanel-background: #373737 !important;
+	
+	/* popup_text */
+	--arrowpanel-color: #fff !important;
+	--autocomplete-popup-color: #fff !important;
+	--panel-disabled-color: hsla(0, 0%, 100%, .5) !important;
+	
+	/* popup_border */
+	--arrowpanel-border-color: #555 !important;
+	--autocomplete-popup-border-color: #555 !important;
+	
+	/* popup_highlight */
+	--autocomplete-popup-highlight-background: #0056d9 !important;
+	
+	/* popup_highlight_text */
+	--autocomplete-popup-highlight-color: #fff !important;
+}
+
+:-moz-any(#sidebar-box, #sidebar)[style*="--sidebar-background-color:rgb(56, 56, 61);"]
+{
+	/* sidebar */
+	--sidebar-background-color: #333639 !important;
+	
+	/* sidebar_text */
+	--sidebar-text-color: #f1f3ee !important;
+}
+
+:-moz-any(.sidebar-panel, body)[style*="--lwt-sidebar-background-color:rgb(56, 56, 61);"]
+{
+	/* sidebar */
+	--lwt-sidebar-background-color: #333639 !important;
+	
+	/* sidebar_text */
+	--lwt-sidebar-text-color: #f1f3ee !important;
+}
+
 :root
 {
     --ease-in: cubic-bezier(.4, 0, 1, 1);
@@ -91,22 +192,6 @@
 {
     --toolbarbutton-hover-background: var(--lwt-toolbarbutton-hover-background, hsla(0, 0%, 100%, .1)) !important;
     --toolbarbutton-active-background: var(--lwt-toolbarbutton-active-background, hsla(0, 0%, 100%, .17)) !important;
-}
-
-:root[privatebrowsingmode]
-{
-	--toolbar-color: hsl(180, 4%, 95%) !important;
-	--toolbar-bgcolor: hsl(206, 7%, 21%) !important;
-	--chrome-secondary-background-color: hsl(206, 7%, 21%) !important;
-	--toolbox-border-bottom-color: hsl(0, 0%, 16%) !important;
-}
-
-:root[privatebrowsingmode] toolbar:not(#TabsToolbar):not(#toolbar-menubar),
-:root[privatebrowsingmode] .tabbrowser-tab[visuallyselected] .tab-close-button
-{
-	--chrome-color: hsl(180, 4%, 95%) !important;
-	--toolbarbutton-hover-background: hsla(0, 0%, 100%, .1) !important;
-    --toolbarbutton-active-background: hsla(0, 0%, 100%, .17) !important;
 }
 
 /* special case for urlbar buttons */
