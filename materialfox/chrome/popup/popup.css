@@ -14,9 +14,20 @@ panel[type="autocomplete-richlistbox"]
 {
 	background: var(--arrowpanel-background) !important;
 	border-radius: 8px !important;
-	padding: 8px 0 !important;
+	padding: 0 0 !important;
 	margin: 0 !important;
 }
+
+menuitem:first-of-type 
+{
+	border-radius: 8px 8px 0 0 !important;
+}
+
+menuitem:last-of-type
+{
+	border-radius: 0 0 8px 8px !important;
+}
+
 
 /* dark themes get a contrasty border */
 .popup-internal-box:-moz-lwtheme-brighttext,
@@ -52,7 +63,7 @@ menu,
 menuitem,
 .autocomplete-richlistitem
 {
-	padding: 0 24px 0 !important;
+	padding: 0 10px 0 !important;
 	min-height: 28px !important;
 }
 
@@ -80,7 +91,7 @@ menuseparator
 	border: 0 !important;
 	padding: 0 !important;
 	height: 1px !important;
-	margin: 5px 0 !important;
+	margin: 4px 0 !important;
 }
 
 .menu-iconic-icon,
@@ -95,7 +106,7 @@ menuseparator
 .ac-site-icon
 {
 	margin-inline-start: 0 !important;
-	margin-inline-end: 8px !important;
+	margin-inline-end: 0 !important;
 }
 
 .menu-right
@@ -115,6 +126,7 @@ menuseparator
 {
 	padding: 0 !important;
 	border-radius: 99px !important;
+	margin-top: 5px;
 }
 
 #context-navigation .menu-iconic-icon
