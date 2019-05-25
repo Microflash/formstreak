@@ -1,9 +1,7 @@
 # formstreak: MaterialFox
 A Material Design 2-inspired userChrome.css theme for Firefox. This is a fork of the awesome [Materialfox](https://github.com/muckSponge/MaterialFox/) theme by [@muckSponge](https://github.com/muckSponge) with some additional customizations.
 
-![Light](./light.png)
-
-![Dark](./dark.png)
+![Screenshot](./screenshot.png)
 
 ## Installation
 
@@ -19,11 +17,6 @@ Disable any existing themes
 * Right click on toolbar -> Customize.
 * Click Themes.
 * Select Light theme.
-
-For better theme/color control:
-* Install [MaterialFox Helper](https://addons.mozilla.org/en-US/firefox/addon/materialfox-helper/).
-* Click the MaterialFox Helper button and select Light (Material) or Dark (Material) depending on taste.
-* Useful on macOS Mojave (dark mode) to force a better looking dark theme.
 
 Add space above tab bar
 * Right click on toolbar -> Customize.
