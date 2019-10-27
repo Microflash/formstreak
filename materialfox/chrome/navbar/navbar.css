@@ -9,91 +9,14 @@
   opacity: 1 !important;
 }
 
-.toolbarbutton-1:-moz-any(#back-button, #forward-button) {
-  list-style-image: url(arrow-back-1x.svg) !important;
-}
-
 /* Windows */
 #PanelUI-button {
   border: none !important;
   margin: 0 !important;
 }
 
-#PanelUI-menu-button {
-  list-style-image: url(menu.svg) !important;
-}
-
-#PanelUI-menu-button[badge-status|="update"] {
-  list-style-image: url(menu-update.svg) !important;
-}
-
 #PanelUI-menu-button[badge-status|="update"] .toolbarbutton-badge {
   display: none !important;
-}
-
-#reload-button {
-  list-style-image: url(refresh-1x.svg) !important;
-}
-
-#stop-button {
-  list-style-image: url(stop-1x.svg) !important;
-}
-
-.toolbarbutton-1#forward-button {
-  transform: scaleX(-1) !important;
-}
-
-#home-button {
-  list-style-image: url(home-1x.svg) !important;
-}
-
-#navigator-toolbox #sync-button {
-  list-style-image: url(profile.svg) !important;
-}
-
-#library-button {
-  list-style-image: url(library-1x.svg) !important;
-}
-
-#preferences-button {
-  list-style-image: url(settings.svg) !important;
-}
-
-#history-panelmenu {
-  list-style-image: url(history.svg) !important;
-}
-
-#panic-button {
-  list-style-image: url(forget.svg) !important;
-}
-
-#developer-button {
-  list-style-image: url(developer.svg) !important;
-}
-
-#add-ons-button {
-  list-style-image: url(addons.svg) !important;
-}
-
-#email-link-button {
-  list-style-image: url(share.svg) !important;
-}
-
-#fxa-avatar-image {
-  /* icon should be 20px, but we don't want to affect button size */
-  transform: scale(1.25) !important;
-}
-
-:root:not([fxastatus=signedin]) #fxa-avatar-image {
-  list-style-image: url(profile-inactive.svg) !important;
-}
-
-:root[fxastatus=signedin]:not([style*="--avatar-image-url"]) #fxa-avatar-image {
-  list-style-image: url(profile.svg) !important;
-}
-
-:root[privatebrowsingmode] #fxa-avatar-image {
-  list-style-image: url(incognito.svg) !important;
 }
 
 :root[privatebrowsingmode] #fxa-toolbar-menu-button {
@@ -127,7 +50,7 @@
 #urlbar,
 #searchbar {
   font-size: 14px !important;
-  border-radius: 6px !important;
+  border-radius: 99px !important;
   background-color: var(--toolbar-field-background-color) !important;
   border: 0 !important;
   box-shadow: none !important;
@@ -167,33 +90,26 @@
 #searchbar[open] {
   border: 0 !important;
   padding: 0 8px 0 !important;
-  border-radius: 6px 6px 0 0 !important;
+  border-radius: 8px 8px 0 0 !important;
   min-height: 37px !important;
   margin: 0 -5px -1px !important;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12) !important;
   position: relative !important;
   z-index: 99999 !important;
 }
 
-/* mac-specific tweaks */
-@media (-moz-mac-yosemite-theme) {
-  #urlbar[open],
-  #searchbar[open] {
-    box-shadow: 
-      0 3px 10px rgba(0, 0, 0, 0.2), 
-      0 0 1px rgba(0, 0, 0, 0.25) !important;
-  }
-}
-
-#identity-box {
-  padding: 0 8px !important;
+#identity-box,
+#urlbar-display-box {
   margin: 0 !important;
   border: 0 !important;
   position: relative !important;
   background: 0 !important;
 }
 
-#urlbar[pageproxystate="valid"] > #identity-box:not(.no-hover) > #identity-icon {
+#urlbar[pageproxystate="valid"]
+  > #identity-box:not(.no-hover)
+  > #identity-icon {
   fill-opacity: 1 !important;
 }
 
@@ -211,14 +127,16 @@
   margin-inline-end: 8px !important;
 }
 
-#urlbar[pageproxystate="valid"]:not([open]) #identity-box:-moz-any(.notSecureText, .verifiedIdentity, .chromeUI, .extensionPage, .certUserOverridden),
+#urlbar[pageproxystate="valid"]:not([open])
+  #identity-box:-moz-any(.notSecureText, .verifiedIdentity, .chromeUI, .extensionPage, .certUserOverridden),
 #urlbar-display-box {
   overflow: visible !important;
   margin-inline-end: 8px !important;
 }
 
 /* separator */
-#urlbar[pageproxystate="valid"]:not([open]) #identity-box:-moz-any(.notSecureText, .verifiedIdentity, .chromeUI, .extensionPage, .certUserOverridden)::after,
+#urlbar[pageproxystate="valid"]:not([open])
+  #identity-box:-moz-any(.notSecureText, .verifiedIdentity, .chromeUI, .extensionPage, .certUserOverridden)::after,
 #urlbar-display-box::after {
   content: "" !important;
   display: -moz-box !important;
@@ -229,26 +147,11 @@
   transition: opacity 0.2s var(--ease-basic) !important;
 }
 
-#urlbar[pageproxystate="valid"] #identity-box:-moz-any(.notSecureText, .verifiedIdentity, .chromeUI, .extensionPage, .certUserOverridden):hover:not(.no-hover)::after,
-#urlbar[pageproxystate="valid"] #identity-box:-moz-any(.notSecureText, .verifiedIdentity, .chromeUI, .extensionPage, .certUserOverridden)[open]::after {
+#urlbar[pageproxystate="valid"]
+  #identity-box:-moz-any(.notSecureText, .verifiedIdentity, .chromeUI, .extensionPage, .certUserOverridden):hover:not(.no-hover)::after,
+#urlbar[pageproxystate="valid"]
+  #identity-box:-moz-any(.notSecureText, .verifiedIdentity, .chromeUI, .extensionPage, .certUserOverridden)[open]::after {
   opacity: 0 !important;
-}
-
-#urlbar[pageproxystate="valid"] > #identity-icon {
-  list-style-image: url(info-1x.svg) !important;
-}
-
-#urlbar[pageproxystate="valid"] > #identity-box:-moz-any(.verifiedDomain, .verifiedIdentity) > #identity-icon {
-  list-style-image: url(connection-1x.svg) !important;
-}
-
-#urlbar[pageproxystate="valid"] > #identity-box.chromeUI > #identity-icon {
-  list-style-image: url(identity-icons-brand.svg) !important;
-}
-
-#identity-box > image {
-  fill: currentColor !important;
-  fill-opacity: 1 !important;
 }
 
 #identity-box.extensionPage > #identity-icon {
@@ -259,26 +162,11 @@
 /* no longer used as a connection icon */
 #connection-icon {
   display: none !important;
-  list-style-image: url(naughty-shield-1x.svg) !important;
 }
 
-#urlbar[pageproxystate="invalid"] #identity-icon {
-  list-style-image: url(search.svg) !important;
-}
-
-#identity-box:-moz-any(
-  .mixedActiveBlocked, 
-  .mixedDisplayContentLoadedActiveBlocked, 
-  .mixedActiveContent) > #connection-icon {
+#identity-box:-moz-any(.mixedActiveBlocked, .mixedDisplayContentLoadedActiveBlocked, .mixedActiveContent)
+  > #connection-icon {
   display: -moz-box !important;
-}
-
-#urlbar[pageproxystate="valid"] > #identity-box:-moz-any(
-  .certUserOverridden, 
-  .weakCipher, 
-  .mixedActiveContent, 
-  .insecureLoginForms) > #identity-icon {
-  list-style-image: url(connection-warning-1x.svg) !important;
 }
 
 #identity-box:-moz-any(.certUserOverridden, .insecureLoginForms) {
@@ -320,7 +208,9 @@
 }
 
 .urlbar-icon,
-#identity-box {
+#identity-box,
+#urlbar-display-box,
+#tracking-protection-icon-container {
   min-width: 32px !important;
   height: 24px !important;
   padding: 0 8px !important;
@@ -328,6 +218,10 @@
   fill-opacity: 1 !important;
   transition: background-color 0.2s var(--ease-basic);
   background-color: transparent !important;
+}
+
+#urlbar-display-box {
+  padding-inline-start: 0 !important;
 }
 
 .urlbar-icon {
@@ -339,90 +233,55 @@
 }
 
 .urlbar-icon:hover:not([disabled]),
-#identity-box:hover:not(.no-hover) {
+#identity-box:hover:not(.no-hover),
+#tracking-protection-icon-container:hover:not(.no-hover) {
   background-color: var(--toolbarbutton-hover-background) !important;
 }
 
 .urlbar-icon:hover:active:not([disabled]),
 .urlbar-icon[open],
 #identity-box:hover:active:not(.no-hover),
-#identity-box[open]:not(.no-hover) {
+#identity-box[open]:not(.no-hover),
+#tracking-protection-icon-container:hover:not(.no-hover),
+#tracking-protection-icon-container[open]:not(.no-hover) {
   background-color: var(--toolbarbutton-active-background) !important;
   transition-duration: 0 !important;
 }
 
 #star-button-box {
-  -moz-box-ordinal-group: 98 !important;
+  -moz-box-ordinal-group: 99 !important;
 }
 
 #pageActionButton {
-  list-style-image: url(menu.svg) !important;
+  -moz-box-ordinal-group: 98 !important;
 }
 
-.urlbar-page-action:-moz-any(
-  #reader-mode-button,
-  #pageActionButton,
-  #pocket-button-box,
-  #pageAction-urlbar-screenshots_mozilla_org,
-  #pageAction-urlbar-sendToDevice,
-  #pageAction-urlbar-emailLink,
-  #pageAction-urlbar-copyURL,
-  #pageAction-urlbar-shareURL,
-  #pageAction-urlbar-addSearchEngine
-) {
-  transition:
-    background-color .2s var(--ease-basic),
-    margin .15s var(--ease-in),
-    opacity .15s var(--ease-basic),
-    visibility 0s .2s !important;
+.urlbar-page-action:-moz-any(#reader-mode-button, #pageActionButton, #pocket-button-box, #pageAction-urlbar-screenshots_mozilla_org, #pageAction-urlbar-sendToDevice, #pageAction-urlbar-emailLink, #pageAction-urlbar-copyURL, #pageAction-urlbar-shareURL, #pageAction-urlbar-addSearchEngine) {
+  transition: background-color 0.2s var(--ease-basic),
+    margin 0.15s var(--ease-in), opacity 0.15s var(--ease-basic),
+    visibility 0s 0.2s !important;
   opacity: 0 !important;
   visibility: hidden !important;
   margin-inline-start: -32px !important;
 }
 
-#urlbar:hover .urlbar-page-action:-moz-any(
-  #reader-mode-button,
-  #pageActionButton,
-  #pocket-button-box,
-  #pageAction-urlbar-screenshots_mozilla_org,
-  #pageAction-urlbar-sendToDevice,
-  #pageAction-urlbar-emailLink,
-  #pageAction-urlbar-copyURL,
-  #pageAction-urlbar-shareURL,
-  #pageAction-urlbar-addSearchEngine
-),
-.urlbar-page-action:-moz-any(
-  #reader-mode-button,
-  #pageActionButton,
-  #pocket-button-box,
-  #pageAction-urlbar-screenshots_mozilla_org,
-  #pageAction-urlbar-sendToDevice,
-  #pageAction-urlbar-emailLink,
-  #pageAction-urlbar-copyURL,
-  #pageAction-urlbar-shareURL,
-  #pageAction-urlbar-addSearchEngine
-):-moz-any(:hover, [open], [readeractive]) {
-  transition:
-    background-color .2s var(--ease-basic),
-    margin .3s var(--ease-out),
-    opacity .3s var(--ease-basic) !important;
+#urlbar:hover
+  .urlbar-page-action:-moz-any(#reader-mode-button, #pageActionButton, #pocket-button-box, #pageAction-urlbar-screenshots_mozilla_org, #pageAction-urlbar-sendToDevice, #pageAction-urlbar-emailLink, #pageAction-urlbar-copyURL, #pageAction-urlbar-shareURL, #pageAction-urlbar-addSearchEngine),
+.urlbar-page-action:-moz-any(#reader-mode-button, #pageActionButton, #pocket-button-box, #pageAction-urlbar-screenshots_mozilla_org, #pageAction-urlbar-sendToDevice, #pageAction-urlbar-emailLink, #pageAction-urlbar-copyURL, #pageAction-urlbar-shareURL, #pageAction-urlbar-addSearchEngine):-moz-any(:hover, [open], [readeractive]) {
+  transition: background-color 0.2s var(--ease-basic),
+    margin 0.3s var(--ease-out), opacity 0.3s var(--ease-basic) !important;
   opacity: 1 !important;
   visibility: visible !important;
   margin-inline-start: 0 !important;
 }
 
+.urlbar-display {
+  color: inherit !important;
+  margin: 0 !important;
+}
+
 #pocket-button-box[animate] > #pocket-animatable-box {
   margin-inline-start: 6px !important;
-}
-
-#star-button {
-  list-style-image: url(star-1x.svg) !important;
-  fill-opacity: 0 !important;
-}
-
-#star-button[starred] {
-  fill: var(--toolbarbutton-icon-fill-attention) !important;
-  fill-opacity: 1 !important;
 }
 
 #star-button-animatable-box {
@@ -434,27 +293,6 @@
   height: 32px !important;
 }
 
-.urlbar-go-button,
-.search-go-button {
-  list-style-image: url(go.svg) !important;
-}
-
-/* incognito icon */
-:root[privatebrowsingmode] #nav-bar::after {
-  content: "" !important;
-  background-image: url(incognito.svg) !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  -moz-context-properties: fill, fill-opacity !important;
-  display: -moz-box !important;
-  fill: currentColor !important;
-  color: inherit !important;
-  width: var(--button-size) !important;
-  height: var(--button-size) !important;
-}
-
-/* replaces sync-button if present */
-:root[privatebrowsingmode] #navigator-toolbox #sync-button,
 .private-browsing-indicator {
   display: none !important;
 }
@@ -463,130 +301,72 @@
   -moz-box-ordinal-group: 2 !important;
 }
 
-/* urlbar and searchbar autocomplete popup */
-#PopupAutoCompleteRichResult {
-  background: 0 !important;
-  margin-top: -4px !important;
+/* high DPI adjustments */
+@media (min--moz-device-pixel-ratio: 2) {
+  #identity-icon-labels {
+    padding-inline-end: 0.5px !important;
+  }
 
-  border: 0 !important;
-  filter: drop-shadow(0 12px 6px rgba(0, 0, 0, 0.25)) !important;
-  overflow: visible !important;
-  padding-bottom: 28px !important;
-}
-
-#PopupAutoCompleteRichResult .autocomplete-richlistbox,
-#PopupAutoCompleteRichResult [anonid="footer"] {
-  background-color: var(--toolbar-field-focus-background-color) !important;
-  margin-inline-start: calc(var(--item-padding-start) + 20px - 0px) !important;
-  margin-inline-end: calc(var(--item-padding-end) - 10px) !important;
-}
-
-#PopupAutoCompleteRichResult .autocomplete-richlistbox {
-  padding: 0 !important;
-  /* comment to keep footer */
-  border-radius: 0 0 6px 6px !important;
-  overflow: hidden !important;
-}
-
-#PopupAutoCompleteRichResult .autocomplete-richlistitem {
-  border: 0 !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
-  height: 36px !important;
-}
-
-/* mac-specific tweaks */
-@media (-moz-mac-yosemite-theme) {
-  #PopupAutoCompleteRichResult {
-    filter: none !important;
-    padding-bottom: 0 !important;
-    margin-top: -3px !important;
+  #identity-icon-labels,
+  .urlbar-input,
+  .searchbar-textbox {
+    transform: translateY(-0.5px) !important;
   }
 }
 
-#PopupAutoCompleteRichResult .ac-type-icon {
-  display: none !important;
+/* icons */
+#urlbar[pageproxystate="valid"] > #identity-icon {
+  list-style-image: url(info-1x.svg) !important;
 }
 
-#PopupAutoCompleteRichResult .ac-site-icon {
-  margin-inline-start: 16px !important;
-  margin-inline-end: 16px !important;
+#urlbar[pageproxystate="valid"]
+  > #identity-box:-moz-any(.verifiedDomain, .verifiedIdentity)
+  > #identity-icon {
+  list-style-image: url(connection-1x.svg) !important;
 }
 
-#PopupAutoCompleteRichResult .ac-type-icon[type="keyword"],
-#PopupAutoCompleteRichResult .ac-site-icon[type="searchengine"] {
-  list-style-image: url(../navbar/search.svg) !important;
+#urlbar[pageproxystate="valid"] > #identity-box.chromeUI > #identity-icon {
+  list-style-image: url(identity-icons-brand.svg) !important;
 }
 
-/* footer is hidden by default */
-#PopupAutoCompleteRichResult [anonid="footer"] {
-  margin-top: -8px !important;
-  border-radius: 0 0 6px 6px !important;
-  /* comment to keep footer */
-  display: none !important;
+/* no longer used as a connection icon */
+#connection-icon {
+  list-style-image: url(naughty-shield-1x.svg) !important;
 }
 
-.search-panel-header,
-.search-panel-one-offs {
-  background: 0 !important;
+#urlbar[pageproxystate="valid"]
+  > #identity-box:-moz-any(.certUserOverridden, .weakCipher, .mixedActiveContent, .insecureLoginForms)
+  > #identity-icon {
+  list-style-image: url(connection-warning-1x.svg) !important;
+}
+
+.urlbar-go-button,
+.search-go-button {
+  list-style-image: url(go.svg) !important;
 }
 
 /* high DPI adjustments */
 @media (min--moz-device-pixel-ratio: 2) {
-  #navigator-toolbox :-moz-any(#back-button, #forward-button) {
-    list-style-image: url(arrow-back-2x.svg) !important;
-  }
-
-  #PanelUI-menu-button:not([badge-status|="update"]) .toolbarbutton-icon {
-    transform: translate(-0.5px, -0.5px) !important;
-  }
-
-  #stop-button {
-    list-style-image: url(stop-2x.svg) !important;
-  }
-
-  #reload-button {
-    list-style-image: url(refresh-2x.svg) !important;
-  }
-
-  #home-button {
-    list-style-image: url(home-2x.svg) !important;
-  }
-
-  #star-button {
-    list-style-image: url(star-2x.svg) !important;
-  }
-  
-  #bookmarks-menu-button {
-    list-style-image: url(bookmark.svg) !important;
-  }
-  
-  #bookmarks-menu-button .toolbarbutton-icon {
-    translateX(.5px) !important;
-  }
-	
-  #library-button {
-    list-style-image: url(library-2x.svg) !important;
-  }
-	
   #identity-icon-labels {
-    padding-inline-end: .5px !important;
+    padding-inline-end: 0.5px !important;
   }
 
-  #urlbar[pageproxystate="valid"] > #identity-box:-moz-any(.unknownIdentity, .notSecure) > #identity-icon {
+  #urlbar[pageproxystate="valid"]
+    > #identity-box:-moz-any(.unknownIdentity, .notSecure)
+    > #identity-icon {
     list-style-image: url(info-2x.svg) !important;
     transform: translate(0.5px, 0.5px) !important;
   }
 
-  #urlbar[pageproxystate="valid"] > #identity-box:-moz-any(.verifiedDomain, .verifiedIdentity) > #identity-icon {
+  #urlbar[pageproxystate="valid"]
+    > #identity-box:-moz-any(.verifiedDomain, .verifiedIdentity)
+    > #identity-icon {
     list-style-image: url(connection-2x.svg) !important;
   }
 
-  #urlbar[pageproxystate="valid"] > #identity-box:-moz-any(
-  	.certUserOverridden, 
-  	.weakCipher, 
-  	.mixedActiveContent, 
-  	.insecureLoginForms) > #identity-icon {
+  #urlbar[pageproxystate="valid"]
+    > #identity-box:-moz-any(.certUserOverridden, .weakCipher, .mixedActiveContent, .insecureLoginForms)
+    > #identity-icon {
     list-style-image: url(connection-warning-2x.svg) !important;
   }
 
